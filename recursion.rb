@@ -39,9 +39,12 @@ def exp_v2(base, exp)
     return 1 if exp == 0
     return base if exp == 1
 
-    if n.even?
-        exp_v2(base, exp / 2) ** 2
-    #else
+    if exp.even?
+        var = exp_v2(base, exp / 2)
+        var * var
+    else
+        var_2 = exp_v2(base, (exp-1)/2)
+        base * (var_2 * var_2)
     end
 
 end
@@ -52,3 +55,18 @@ p exp_v2(2, 1)  #2
 p exp_v2(2, 2)  #4 
 p exp_v2(2, 3)  #8 
 p exp_v2(2, 4)  #16
+
+# [1,2,3,4]
+
+def deep_dup(arr)
+    return [] if arr.empty?
+
+    arr.each do |ele|
+        ele.is_a?(Array)
+end
+
+
+# base case []
+# 1 away from base [1]
+# 2 levels away [[1,2]]
+# example [[1], [[2], [3, 4]]]

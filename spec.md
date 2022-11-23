@@ -25,6 +25,7 @@ exp(b, 0) = 1
 exp(b, 1) = b
 exp(b, n) = exp(b, n / 2) ** 2             [for even n]
 exp(b, n) = b * (exp(b, (n - 1) / 2) ** 2) [for odd n]
+
 Note that for recursion 2, you will need to square the results of exp(b, n / 2) and (exp(b, (n - 1) / 2). Remember that you don't need to do anything special to square a number, just calculate the value and multiply it by itself. So don't cheat and use exponentiation in your solution.
 
 Suggestion: Break the methods down into parts. For more information check out the Breaking Methods Into Parts reading in the sidebar.
