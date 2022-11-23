@@ -57,24 +57,33 @@ end
 # p exp_v2(2, 4)  #16
 
 # [1,2,3,4]
-
-def deep_dup(arr)  #1D array can be dup with the .dup method. Our parameter is nested array
-    return [arr].dup if !arr.is_a?(Array)
-    dd = []
-    arr.each do |ele|
-        if !ele.is_a?(Array) 
-            dd += ele.dup + deep_dup(arr[1..-1])
-        else
-
+class Array
+    def deep_dup  #1D array can be dup with the .dup method. Our parameter is nested array
+        # return self.dup if !self.is_a?(Array)
+        return [] if self.empty?
+    
+        dd = Array.new
+        self.each do |ele|
+            if ele.is_a?(Array)
+                dd << ele.deep_dup
+            else
+                dd << ele
+            end
         end
+        dd
     end
-    dd
 end
 
-p deep_dup([[1], [[2], [3, 4]]])
-p deep_dup([[1,2]])
+# p deep_dup([[1], [[2], [3, 4]]])
+# p deep_dup([[1,2]])
 
 # base case []
 # 1 away from base [1]
 # 2 levels away [[1,2]]
 # example [[1], [[2], [3, 4]]]
+
+def fib_i(n)            # 0, 1, 1, 2, 3, 5, 8, 13
+    arr = [0, 1]
+
+    arr
+end
