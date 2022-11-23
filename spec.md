@@ -5,9 +5,12 @@ Be able to write the inductive step for a recursive method
 Be able to explain the benefits of writing a method recursively vs. iteratively
 Be able to trace a recursive method and figure out how many recursive steps it will take
 Know how to write recursive sorting and searching algorithms
+
 Warmup
 Write a recursive method, range, that takes a start and an end and returns an array of all numbers in that range, exclusive. For example, range(1, 5) should return [1, 2, 3, 4]. If end < start, you can return an empty array.
+
 Write both a recursive and iterative version of sum of an array.
+
 Exponentiation
 Write two versions of exponent that use two different recursions:
 
