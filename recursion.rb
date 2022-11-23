@@ -51,20 +51,28 @@ end
 #if base == 2, exp == 2
 #base == 2, exp == 1
 
-p exp_v2(2, 1)  #2
-p exp_v2(2, 2)  #4 
-p exp_v2(2, 3)  #8 
-p exp_v2(2, 4)  #16
+# p exp_v2(2, 1)  #2
+# p exp_v2(2, 2)  #4 
+# p exp_v2(2, 3)  #8 
+# p exp_v2(2, 4)  #16
 
 # [1,2,3,4]
 
-def deep_dup(arr)
-    return [] if arr.empty?
-
+def deep_dup(arr)  #1D array can be dup with the .dup method. Our parameter is nested array
+    return [arr].dup if !arr.is_a?(Array)
+    dd = []
     arr.each do |ele|
-        ele.is_a?(Array)
+        if !ele.is_a?(Array) 
+            dd += ele.dup + deep_dup(arr[1..-1])
+        else
+
+        end
+    end
+    dd
 end
 
+p deep_dup([[1], [[2], [3, 4]]])
+p deep_dup([[1,2]])
 
 # base case []
 # 1 away from base [1]
